@@ -1,0 +1,23 @@
+const hamburger = document.querySelector('.hamburger');
+const navLink = document.querySelector('.nav__link');
+
+hamburger.addEventListener('click', () => {
+  navLink.classList.toggle('hide');
+});
+
+
+var currentIndex = 1;
+displaySlides(currentIndex);
+function displaySlides(num) {
+    var x;
+    var slides = document.getElementsByClassName("imageSlides");
+    if (num > slides.length) { currentIndex = 1 }
+    if (num < 1) { currentIndex = slides.length }
+    for (x = 0; x < slides.length; x++) {
+        slides[x].style.display = "none";
+    }
+    slides[currentIndex - 1].style.display = "block";
+}
+function setSlides(num) {
+    displaySlides(currentIndex += num);
+}
